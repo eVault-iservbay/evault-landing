@@ -1,13 +1,13 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Moon, Sun, Languages } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from '@/components/ui/button';
 
 const Navigation = () => {
@@ -23,6 +23,8 @@ const Navigation = () => {
     { code: 'fr' as const, name: 'Français' },
     { code: 'ar' as const, name: 'العربية' },
   ];
+
+  // restore dropdown language selector with icon
 
   return (
     <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in">
