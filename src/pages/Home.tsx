@@ -1,12 +1,14 @@
-import { useLanguage } from '@/contexts/LanguageContext';
-import heroBackground from '@/assets/hero-background.jpg';
-import logoPng from '@/assets/logo.png';
+import { useLanguage } from "@/contexts/LanguageContext";
+import heroBackground from "@/assets/hero-background.jpg";
+import logoPng from "@/assets/logo.png";
+import BellBadge from "@/components/BellBadge";
+import FeatureRows from "@/components/FeatureRows";
 
 const Home = () => {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen relative overflow-hidden flex items-center">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -19,40 +21,67 @@ const Home = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          {/* Left Side - Logo */}
-          <div className="flex flex-col items-center justify-center lg:items-start gap-4 animate-fade-in">
-            {/* Logo (no circular container) - increased size */}
-            <img src={logoPng} alt="Company logo" className="w-48 h-48 lg:w-72 lg:h-72 object-contain" />
+      <div className="relative z-10">
+        {/* Hero Section */}
+        <div className="container mx-auto px-6 pt-32 pb-20">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            {/* Left Side - Logo */}
+            <div className="flex flex-col items-center justify-center gap-6 animate-fade-in">
+              {/* Logo */}
+              <img
+                src={logoPng}
+                alt="eVault logo"
+                className="w-32 h-32 md:w-48 md:h-48 lg:w-72 lg:h-72 object-contain"
+              />
 
-            {/* Minimalist launch card below the logo */}
-            <div className="glass px-4 py-2 rounded-xl text-right w-40">
-              <div className="text-lg font-semibold text-primary">2026</div>
-              <div className="text-xs text-foreground/60">Expected — Q1</div>
+              {/* BELL MFB Badge - centered below logo */}
+              <BellBadge />
+            </div>
+
+            {/* Right Side - Story */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+                  <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                    {t("companyStory")}
+                  </span>
+                </h1>
+                <p className="text-base text-foreground/70 leading-relaxed max-w-xl">
+                  {t("companyStoryShort")}
+                </p>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Side - Story */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
-                  {t('companyStory')}
-                </span>
-              </h1>
-              <p className="text-lg text-foreground/80 leading-relaxed max-w-xl">
-                {t('companyStoryShort')}
-              </p>
-            </div>
+        {/* Features Section */}
+        <div className="container mx-auto px-6 py-24">
+          <p className="text-center text-foreground/60 mb-16 max-w-2xl mx-auto">
+            Everything you need to manage money, pay bills, and send payments
+            that actually work.
+          </p>
+
+          <FeatureRows />
+        </div>
+
+        {/* Footer */}
+        <div className="container mx-auto px-6 py-8 relative">
+          {/* Privacy policy link bottom-left */}
+          <a
+            href="/privacy"
+            className="absolute left-6 bottom-6 text-sm text-foreground/70 hover:text-primary transition-colors"
+          >
+            Privacy Policy
+          </a>
+
+          {/* BELL Badge + Copyright bottom-right */}
+          <div className="absolute right-6 bottom-6 text-right space-y-1">
+            <BellBadge variant="footer" />
+            <div className="text-sm text-foreground/70">© 2025 evault</div>
           </div>
         </div>
       </div>
 
-  {/* Privacy policy link bottom-left */}
-  <a href="/privacy" className="absolute left-6 bottom-6 text-sm text-foreground/70 hover:text-primary">Privacy Policy</a>
-  {/* Copyright bottom-right */}
-  <div className="absolute right-6 bottom-6 text-sm text-foreground/70">© 2025 evault</div>
       {/* Decorative Elements */}
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
