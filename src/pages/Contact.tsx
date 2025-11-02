@@ -1,8 +1,7 @@
-
-import { useLanguage } from '@/contexts/LanguageContext';
-import SocialLinks from '@/components/SocialLinks';
-import EmailCapture from '@/components/EmailCapture';
-import { Mail } from 'lucide-react';
+import { useLanguage } from "@/contexts/LanguageContext";
+import SocialLinks from "@/components/SocialLinks";
+// import EmailCapture from '@/components/EmailCapture';
+import { Mail } from "iconoir-react";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -17,54 +16,49 @@ const Contact = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-32">
         <div className="max-w-4xl mx-auto space-y-16 animate-fade-in">
-
           {/* Header */}
           <div className="text-center space-y-4">
             <h1 className="text-4xl lg:text-5xl font-bold">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Get in Touch
+                {t("contactHeader")}
               </span>
             </h1>
             <p className="text-foreground/70 max-w-2xl mx-auto">
-              Have questions about eVault? Want to learn more about our features or partnership opportunities? We'd love to hear from you.
+              {t("contactSubheader")}
             </p>
           </div>
 
           {/* Email Contact Card */}
           <div className="max-w-md mx-auto">
             <a
-              href={`mailto:${t('emailPlaceholder')}`}
+              href={`mailto:${t("emailPlaceholder")}`}
               className="glass-light p-8 rounded-2xl space-y-4 hover:bg-primary/10 transition-all group block"
             >
               <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                <Mail className="w-6 h-6 text-primary" />
+                <Mail className="w-6 h-6 text-white" />
               </div>
               <div className="space-y-2">
                 <div className="text-sm text-foreground/60 font-medium">
-                  Email Us
+                  {t("emailUs")}
                 </div>
                 <div className="text-foreground font-medium break-words">
-                  {t('emailPlaceholder')}
+                  {t("emailPlaceholder")}
                 </div>
                 <p className="text-sm text-foreground/60">
-                  We typically respond within 24 hours
+                  {t("responseTime")}
                 </p>
               </div>
             </a>
           </div>
 
-
           {/* Social Section */}
           <div className="glass p-8 lg:p-12 rounded-3xl space-y-6 text-center">
-            <h3 className="text-xl font-semibold">Stay Connected</h3>
-            <p className="text-foreground/70">
-              Follow us for updates, behind-the-scenes content, and launch announcements
-            </p>
+            <h3 className="text-xl font-semibold">{t("stayConnected")}</h3>
+            <p className="text-foreground/70">{t("followUpdates")}</p>
             <div className="flex justify-center pt-4">
               <SocialLinks />
             </div>
           </div>
-
         </div>
       </div>
     </div>

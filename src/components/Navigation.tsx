@@ -10,10 +10,10 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const languages = [
-    { code: "en" as const, initials: "EN" },
-    { code: "es" as const, initials: "ES" },
-    { code: "fr" as const, initials: "FR" },
-    { code: "ar" as const, initials: "AR" },
+    { code: "en" as const, initials: "Eng" },
+    { code: "ha" as const, initials: "Hau" },
+    { code: "yo" as const, initials: "Yor" },
+    { code: "ig" as const, initials: "Igb" },
   ];
 
   const currentLanguageIndex = languages.findIndex(

@@ -1,26 +1,26 @@
 import { 
-  Wallet2, 
-  Receipt, 
-  Activity, 
+  Coins, 
+  CardWallet, 
+  AntennaSignal, 
   Shield, 
   Headset, 
   Lock 
-} from 'lucide-react';
+} from 'iconoir-react';
 
 const FeatureRows = ({ variant = 'home' }) => {
   const homeFeatures = [
     {
-      icon: Wallet2,
+      icon: Coins,
       title: 'Smart Wallet',
       description: 'Save, send, and transfer money with better rates. Powered by BELL MFB for bank-grade security and regulatory compliance.',
     },
     {
-      icon: Receipt,
+      icon: CardWallet,
       title: 'Complete Bills',
-      description: 'Airtime, data, electricity, water, cable. All your payments in one secure place.',
+      description: 'Airtime, data, electricity, water, cable. All your payments in one secure place with instant processing.',
     },
     {
-      icon: Activity,
+      icon: AntennaSignal,
       title: 'Know Before You Send',
       description: 'Real-time network strength indicator shows transaction success probability before authorization. No more anxiety, no more multi-day reversals.',
     },
@@ -28,7 +28,7 @@ const FeatureRows = ({ variant = 'home' }) => {
 
   const aboutFeatures = [
     {
-      icon: Activity,
+      icon: AntennaSignal,
       title: 'Network Strength Indicator',
       description: 'See real-time bank connectivity before authorizing payments. Know if your transaction will succeed before you send it.',
     },
@@ -51,19 +51,20 @@ const FeatureRows = ({ variant = 'home' }) => {
 
   const features = variant === 'home' ? homeFeatures : aboutFeatures;
 
-  // For home page, use custom bento layout
+  // For home page, use asymmetric bento grid layout
   if (variant === 'home') {
     return (
-      <div className="max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Top Left - Smart Wallet */}
-          <div className="backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-8 hover:bg-background/90 transition-all group">
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Wallet2 className="w-7 h-7 text-primary" strokeWidth={1.5} />
+      <div className="max-w-6xl mx-auto">
+        {/* Top row - 2 cards with different widths */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 mb-4">
+          {/* Card 1 - Coins (takes 5 columns = ~42% width) */}
+          <div className="md:col-span-5 backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-6 md:p-8 hover:bg-background/90 transition-all group">
+            <div className="space-y-4 md:space-y-6">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <Coins className="w-6 h-6 md:w-7 md:h-7 text-primary" strokeWidth={1.5} />
               </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-foreground">
+              <div className="space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-semibold text-foreground">
                   {features[0].title}
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">
@@ -73,14 +74,14 @@ const FeatureRows = ({ variant = 'home' }) => {
             </div>
           </div>
 
-          {/* Top Right - Complete Bills */}
-          <div className="backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-8 hover:bg-background/90 transition-all group">
-            <div className="space-y-6">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Receipt className="w-7 h-7 text-primary" strokeWidth={1.5} />
+          {/* Card 2 - Card Wallet (takes 7 columns = ~58% width) */}
+          <div className="md:col-span-7 backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-6 md:p-8 hover:bg-background/90 transition-all group">
+            <div className="space-y-4 md:space-y-6">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <CardWallet className="w-6 h-6 md:w-7 md:h-7 text-primary" strokeWidth={1.5} />
               </div>
-              <div className="space-y-3">
-                <h3 className="text-xl font-semibold text-foreground">
+              <div className="space-y-2 md:space-y-3">
+                <h3 className="text-lg md:text-xl font-semibold text-foreground">
                   {features[1].title}
                 </h3>
                 <p className="text-sm text-foreground/60 leading-relaxed">
@@ -89,21 +90,21 @@ const FeatureRows = ({ variant = 'home' }) => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Bottom - Full Width - Network Indicator */}
-          <div className="md:col-span-2 backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-8 hover:bg-background/90 transition-all group">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                <Activity className="w-7 h-7 text-primary" strokeWidth={1.5} />
-              </div>
-              <div className="space-y-3 flex-1">
-                <h3 className="text-xl font-semibold text-foreground">
-                  {features[2].title}
-                </h3>
-                <p className="text-sm text-foreground/60 leading-relaxed">
-                  {features[2].description}
-                </p>
-              </div>
+        {/* Bottom row - Full width card */}
+        <div className="backdrop-blur-xl bg-background/80 border border-white/10 shadow-lg rounded-3xl p-6 md:p-10 hover:bg-background/90 transition-all group">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-start">
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+              <AntennaSignal className="w-6 h-6 md:w-7 md:h-7 text-primary" strokeWidth={1.5} />
+            </div>
+            <div className="space-y-2 md:space-y-3 flex-1">
+              <h3 className="text-lg md:text-2xl font-semibold text-foreground">
+                {features[2].title}
+              </h3>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                {features[2].description}
+              </p>
             </div>
           </div>
         </div>
