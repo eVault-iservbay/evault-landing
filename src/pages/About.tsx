@@ -1,86 +1,123 @@
-import { useLanguage } from '@/contexts/LanguageContext';
-import CompanyLogo from '@/components/CompanyLogo';
-import { Target, Users, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext'; // Adjust path if needed
+import logoPng from '@/assets/logo.png';
+import heroBackground from '@/assets/hero-background.jpg';
 
 const About = () => {
   const { t } = useLanguage();
 
-  const values = [
-    {
-      icon: Target,
-      title: 'Precision',
-      description: 'Every detail matters in delivering excellence',
-    },
-    {
-      icon: Users,
-      title: 'Collaboration',
-      description: 'Together we achieve more than alone',
-    },
-    {
-      icon: Zap,
-      title: 'Innovation',
-      description: 'Pushing boundaries and exploring new possibilities',
-    },
-  ];
-
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/3 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-
+      {/* Background Image with Overlay - matching Home page */}
+      <div className="absolute inset-0">
+        <img
+          src={heroBackground}
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/90 to-background/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_hsl(var(--primary))_0%,_transparent_50%)] opacity-10" />
+      </div>
+      {/* Decorative Elements */}
+      <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-32">
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
         <div className="max-w-4xl mx-auto space-y-16 animate-fade-in">
+         
           {/* Header */}
-          <div className="text-center space-y-6">
+          <div className="text-center space-y-8">
             <div className="flex justify-center">
-              <CompanyLogo className="w-24 h-24" />
+              <img src={logoPng} alt="eVault logo" className="w-20 h-20 object-contain" />
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t('about')}
-              </span>
-            </h1>
+            <p className="text-3xl text-primary font-bold">
+              {t('aboutHeader')}
+            </p>
           </div>
-
-          {/* Story */}
-          <div className="glass-strong p-8 lg:p-12 rounded-3xl space-y-6">
-            <h2 className="text-2xl font-bold text-primary">{t('companyStory')}</h2>
-            <div className="prose prose-lg prose-invert max-w-none">
-              {t('companyStoryFull').split('\n\n').map((paragraph, index) => (
-                <p key={index} className="text-foreground/80 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          {/* Mission */}
-          <div className="glass p-8 lg:p-12 rounded-3xl space-y-4 border-l-4 border-primary">
-            <h2 className="text-2xl font-bold">{t('ourMission')}</h2>
-            <p className="text-xl text-foreground/80">{t('missionText')}</p>
-          </div>
-
-          {/* Values */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="glass-strong p-6 rounded-2xl space-y-4 hover:bg-primary/10 transition-colors group"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold">{value.title}</h3>
-                  <p className="text-foreground/70">{value.description}</p>
-                </div>
-              );
-            })}
-          </div>
+          {/* Our Vision */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutVisionTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutVisionText')}
+            </p>
+          </section>
+          {/* How We're Different */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutDifferentTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutDifferentPara1')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutDifferentPara2')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutDifferentPara3')}
+            </p>
+          </section>
+          {/* Built on Strategic Partnerships */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutPartnershipsTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutPartnershipsPara1')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutPartnershipsPara2')}
+            </p>
+          </section>
+          {/* The Complete Payment Platform */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutPlatformTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutPlatformText')}
+            </p>
+          </section>
+          {/* Innovation in Development */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutInnovationTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutInnovationPara1')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutInnovationPara2')}
+            </p>
+          </section>
+          {/* Early Adopter Benefits */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutEarlyAdoptersTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutEarlyAdoptersText')}
+            </p>
+          </section>
+          {/* Our Commitment to You */}
+          <section className="space-y-6">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutCommitmentTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutCommitmentPara1')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutCommitmentPara2')}
+            </p>
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutCommitmentPara3')}
+            </p>
+          </section>
+          {/* Stay Informed */}
+          <section className="space-y-6 pb-12">
+            <h2 className="text-3xl font-semibold text-primary">{t('aboutStayInformedTitle')}</h2>
+           
+            <p className="text-lg text-foreground/80 leading-relaxed">
+              {t('aboutStayInformedText')}
+            </p>
+            {/* <p className="text-2xl text-center font-semibold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent pt-8">
+              {t('aboutSlogan')}
+            </p> */}
+          </section>
         </div>
       </div>
     </div>
