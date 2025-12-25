@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Languages, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.png';
 
 const Navigation = () => {
   const location = useLocation();
@@ -59,11 +60,10 @@ const Navigation = () => {
         >
           {/* Top bar - always visible */}
           <div className="flex items-center justify-between gap-4">
-            {/* Logo - Replace with your imported logo */}
+            {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center">
-                {/* Replace this div with: <img src={logo} alt="Logo" className="h-10 w-10 rounded-full" /> */}
-                <span className="text-primary font-bold text-lg">eV</span>
+              <div className="h-10 w-10 rounded-full bg-primary/20 border-2 border-primary/40 flex items-center justify-center overflow-hidden">
+                <img src={logo} alt="eVault Logo" className="h-8 w-8 object-contain" />
               </div>
             </div>
 
