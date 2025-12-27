@@ -32,7 +32,23 @@ const Navigation = () => {
   const navItems = [
     { path: '/', label: t('home') },
     { path: '/about', label: t('about') },
-    { path: 'https://taxease.evaultmoney.com', label: t('Tax-ease'), external: true },
+    // { path: 'https://taxease.evaultmoney.com', label: t('Tax-ease'), external: true },
+    { 
+      path: 'https://taxease.evaultmoney.com', 
+      label: (
+        <span className="flex items-center gap-1.5">
+          {t('Tax-ease')}
+          <span className="relative inline-flex items-center px-2 py-0.5 text-[10px] font-bold rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+            NEW
+            <span className="absolute top-0 right-0 flex h-2 w-2 -mr-1 -mt-1">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+            </span>
+          </span>
+        </span>
+      ), 
+      external: true 
+    },
     { path: '/contact', label: t('contact') },
   ];
 
