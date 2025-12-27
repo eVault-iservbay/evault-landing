@@ -33,7 +33,7 @@ const Home = () => {
             />
 
             {/* Now Available Badge - Immediate */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 animate-inelastic-bounce">
               <span className="text-xs font-semibold text-amber-100">Now Available</span>
             </div>
 
@@ -126,7 +126,7 @@ const Home = () => {
             {/* Right Side - CTA Section (offset ~200px down) */}
             <div className="absolute top-[200px] right-0 max-w-xl space-y-6 animate-fade-in">
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 animate-inelastic-bounce">
                   <span className="text-xs font-medium text-amber-100">Now Available</span>
                 </div>
                 <h2 className="text-4xl font-bold text-foreground">

@@ -109,12 +109,79 @@ All colors MUST be HSL.
   .glass {
     @apply bg-white/5 backdrop-blur-md border border-white/10;
   }
-  
+
   .glass-strong {
     @apply bg-white/10 backdrop-blur-lg border border-white/20;
   }
-  
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Inelastic Bounce Animation for "Now Available" badge */
+  @keyframes inelastic-bounce {
+    /* Initial drop - gravity acceleration */
+    0% {
+      transform: translateY(0);
+      animation-timing-function: ease-in;
+    }
+
+    /* First impact */
+    15% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+
+    /* First bounce - loses 50% energy */
+    25% {
+      transform: translateY(-35px);
+      animation-timing-function: ease-in;
+    }
+
+    /* Second impact */
+    35% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+
+    /* Second bounce - loses 60% energy */
+    42% {
+      transform: translateY(-18px);
+      animation-timing-function: ease-in;
+    }
+
+    /* Third impact */
+    49% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+
+    /* Third bounce - loses 70% energy */
+    54% {
+      transform: translateY(-7px);
+      animation-timing-function: ease-in;
+    }
+
+    /* Fourth impact */
+    59% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+
+    /* Fourth bounce - tiny */
+    62% {
+      transform: translateY(-3px);
+      animation-timing-function: ease-in;
+    }
+
+    /* Final rest */
+    65%, 100% {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-inelastic-bounce {
+    animation: inelastic-bounce 2.5s ease-in-out infinite;
+    animation-delay: 0.8s;
   }
 }
