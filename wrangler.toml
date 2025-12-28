@@ -1,0 +1,3 @@
+# Cloudflare Pages Configuration
+name = "evault-landing"
+pages_build_output_dir = "dist"
