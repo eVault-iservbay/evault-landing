@@ -39,13 +39,13 @@ const Home = () => {
 
             {/* Headline */}
             <h2 className="text-2xl font-bold text-foreground leading-tight">
-              Get your TIN without the headache
+              Get your TIN hassle-free
             </h2>
 
             {/* Description */}
             <p className="text-sm text-foreground/60 max-w-sm leading-snug">
-              Professional TIN processing. WhatsApp updates, <br />
-              48-hour guarantee, from ₦3,500.
+              WhatsApp updates, <br />
+              48-hour guarantee.
             </p>
 
             {/* CTA Buttons */}
